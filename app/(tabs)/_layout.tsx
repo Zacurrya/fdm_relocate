@@ -7,14 +7,14 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const TabsLayout = () => {
   const { user } = useAuth();
-
+  const insets = useSafeAreaInsets();
+  const { width, height } = useWindowDimensions();
+  
   // If no user is authenticated, stop rendering immediately.
   // The Root Layout will handle redirection to the landing page.
   if (!user) return null;
 
   const isAdmin = user?.role === "ADMIN";
-  const insets = useSafeAreaInsets();
-  const { width, height } = useWindowDimensions();
   const isLandscape = width > height;
   const tabBarTopPadding = isLandscape ? 6 : 10;
   const tabBarBottomPadding = Math.max(insets.bottom, isLandscape ? 8 : 12);

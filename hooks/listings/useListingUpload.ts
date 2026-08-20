@@ -2,7 +2,7 @@ import { ListingSource, PropertyType, RentPeriod } from "@/types/enums";
 import { useAuth } from "@hooks/general/useAuth";
 import { useUploadPhotos } from "@hooks/useUploadPhotos";
 import { ListingService } from "@services/listings/listingsService";
-import { fields } from "@utils/validation";
+import { uploadListingFields } from "@utils/validation";
 import { useRouter } from "expo-router";
 import { useState } from "react";
 
@@ -54,13 +54,13 @@ export const useListingUpload = () => {
 
         // Validate fields
         const newErrors: Record<string, string> = {};
-        const titleErr = fields.title(title);
-        const descErr = fields.description(description);
-        const addressErr = fields.address(address);
-        const priceErr = fields.rentAmount(price);
-        const photosErr = fields.photos(photos);
-        const bedroomsErr = fields.bedrooms(bedrooms);
-        const bathroomsErr = fields.bathrooms(bathrooms);
+        const titleErr = uploadListingFields.title(title);
+        const descErr = uploadListingFields.description(description);
+        const addressErr = uploadListingFields.address(address);
+        const priceErr = uploadListingFields.rentAmount(price);
+        const photosErr = uploadListingFields.photos(photos);
+        const bedroomsErr = uploadListingFields.bedrooms(bedrooms);
+        const bathroomsErr = uploadListingFields.bathrooms(bathrooms);
 
         if (titleErr) newErrors.title = titleErr;
         if (descErr) newErrors.description = descErr;

@@ -67,8 +67,8 @@ export const useUploadPhotos = (options: UploadPhotosOptions) => {
 
             if (result.canceled || result.assets.length === 0) return [];
             return result.assets.map((a) => a.uri);
-        } catch (e) {
-            console.error("[useUploadPhotos] Failed to pick image:", e);
+        } catch (err) {
+            console.error("[useUploadPhotos] Failed to pick image:", err);
             Alert.alert("Selection Failed", "We couldn't open your photo library.");
             return [];
         }

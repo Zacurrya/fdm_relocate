@@ -33,7 +33,7 @@ const SearchBar = ({
           onChangeText={onChangeText}
         />
       </View>
-
+      {/* Filter Button */}
       {showFilterButton && onPressFilter ? (
         <TouchableOpacity
           onPress={onPressFilter}

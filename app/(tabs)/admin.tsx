@@ -21,7 +21,6 @@ const AdminScreen = () => {
     isLoading,
     auditSearchEmail,
     setAuditSearchEmail,
-    subtitle,
     handleApproveRequest,
     handleRejectRequest,
     handleChangeRequestFilter,

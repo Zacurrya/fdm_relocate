@@ -30,20 +30,24 @@ const Home = () => {
           x={200}
         />
 
-        {/* Global Profile Trigger */}
+        {/* Profile Modal */}
         <View className="absolute top-16 right-6 z-50">
           <ProfilePic size={52} onPress={() => setIsProfileVisible(true)} />
         </View>
 
-        {/* Header content and Feed */}
+        {/* Header */}
         <View className="flex-1">
           <HomeHeader
             cityName={user?.officeLocation!}
             imagePath={cityImagePath}
           />
-
+        <ProfileModal
+          visible={isProfileVisible}
+          onClose={() => setIsProfileVisible(false)}
+        />
+        
+          {/* Saved Listings */}
           <Text className="text-fdm-fg font-bold px-6 mb-2 mt-4 uppercase tracking-widest text-sm">Your Saved Listings</Text>
-
           <View className="px-6 flex-1">
             <ListingList
               listings={listings}
@@ -55,11 +59,6 @@ const Home = () => {
             />
           </View>
         </View>
-
-        <ProfileModal
-          visible={isProfileVisible}
-          onClose={() => setIsProfileVisible(false)}
-        />
         <AppTrademark marginTop={0}/>
       </View>
     </ApprovalGuard>

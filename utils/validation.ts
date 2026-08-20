@@ -90,7 +90,7 @@ export const validateListingInput = ({
 };
 
 // -- Listing field validators (return error string or null) --
-export const fields = {
+export const uploadListingFields = {
     title: (value: string) => {
         if (!value.trim()) return "Property title cannot be empty.";
         return null;

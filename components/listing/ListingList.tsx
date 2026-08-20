@@ -1,13 +1,13 @@
 import { ListingRecord } from "@/types/records";
-import { filterListings } from "@/utils/listingFilters";
+import ListingCardSkeleton from "@components/listing/ListingCardSkeleton";
 import { Ionicons } from "@expo/vector-icons";
 import { FilterListingsDTO } from "@services/listings/types";
+import { filterListings } from "@utils/listingFilters";
 import { useRouter } from "expo-router";
 import { useMemo } from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import Animated, { Layout } from "react-native-reanimated";
 import ListingCard from "./ListingCard";
-import ListingCardSkeleton from "../ui/ListingCardSkeleton";
 
 export interface ListingListProps {
   listings: ListingRecord[];

@@ -11,7 +11,7 @@ export const encodeListingShareMessage = (listingId: string): string => {
   return `${LISTING_SHARE_PREFIX}${listingId}${LISTING_SHARE_SUFFIX}`;
 };
 
-// --- Media & Payload Parsing ---
+// -- Media Parsing --
 export const IMAGE_URL_REGEX = /(https?:\/\/[^\s]+(\.(png|jpe?g|gif|webp|heic)(\?.*)?|\/storage\/v1\/object\/public\/[^\s]+))/i;
 
 /**
@@ -35,7 +35,7 @@ export const extractAuditMessage = (content: string): string => {
   return content.replace(/^(\[AUDIT\]|System:)\s*/i, "").trim();
 };
 
-// --- Formatting Helpers ---
+// -- Formatting Helpers --
 
 /**
  * Extracts initials from a full name or specific first/last name parts.

@@ -16,6 +16,7 @@ export const SavedListingsProvider = ({ children }: { children: React.ReactNode 
     const { user } = useAuth();
     const queryClient = useQueryClient();
 
+    // Caches the IDs of the current user's saved listings
     const { data: savedListingIds = [], isLoading, refetch } = useQuery({
         queryKey: ["savedListingIds", user?.userId],
         queryFn: async () => {
@@ -24,7 +25,7 @@ export const SavedListingsProvider = ({ children }: { children: React.ReactNode 
         },
         enabled: !!user?.userId,
     });
-
+    // Before the server call, optimistically updates the cache, with a rollback on error
     const mutation = useMutation({
         mutationFn: async (listingId: string) => {
             if (!user?.userId) return;
